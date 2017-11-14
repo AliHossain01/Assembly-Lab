@@ -20,17 +20,10 @@ Main proc   ;Main Procedure
             MOV DL, AH
             INT 21h
             
-            
-          
-    
-    
     
 Main endp       ; Main end procedure
 
         
                 ;other procedure section
-
-
-
 
        End main

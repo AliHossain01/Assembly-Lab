@@ -1,0 +1,53 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+NEW LINE.com -- emu8086 assembler version: 4.08  
+ 
+[ 18-Jul-17  --  11:29:09 PM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       
+[   2]        :                                       ; You may customize this and other start-up templates;
+[   3]        :                                       ; The location of this template is c:\emu8086\inc\0_com_template.txt
+[   4]        :                                       
+[   5]        :                                       org 100h
+[   6]        :                                       .MODEL SMALL
+[   7]        :                                       .STACK 100H
+[   8]    0100:                                       .CODE
+[   9]        :                                       
+[  10]        :                                       ; add your code here
+[  11]        :                                       
+[  12]    0100:                                       MAIN PROC
+[  13]        :                                       
+[  14]    0100: B4 01                                 MOV AH,1
+[  15]    0102: CD 21                                 INT 21H     ; INPUT
+[  16]        :                                       
+[  17]    0104: 8A D8                                 MOV BL,AL   ; BL = AL
+[  18]        :                                       
+[  19]    0106: B4 02                                 MOV AH,2   ; OUTUT
+[  20]    0108: B2 0A                                 MOV DL,0AH ; FOR NEW LINE
+[  21]    010A: B2 00                                 MOV DL,0D
+[  22]    010C: CD 21                                 INT 21H
+[  23]        :                                       
+[  24]    010E: B4 02                                 MOV AH,2 ; OUTPUT FUNCTION
+[  25]    0110: 8A D3                                 MOV DL,BL ;DL = BL
+[  26]    0112: CD 21                                 INT 21H
+[  27]        :                                       
+[  28]        :                                       
+[  29]    0114: C3                                    ret
+[  30]        :                                       
+[  31]        :                                       
+[  32]        :                                       
+[  33]        :                                       
+[  34]        :                                       
+[  35]        :                                       
+ 
+===================================================================================================
+ 
+
+
+
+
+===================================================================================================

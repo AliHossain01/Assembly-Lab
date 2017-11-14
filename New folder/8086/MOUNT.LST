@@ -1,0 +1,75 @@
+Microsoft (R) Macro Assembler Version 5.00                  9/20/15 15:51:30
+                                                             Page     1-1
+
+
+       1				;title: print number 
+       2				.MODEL SMALL 
+       3 0100				.STACK 100H 
+       4 0000				.DATA 
+       5 0000  20 24				SPA DB ' $' 
+       6 0000				.CODE 
+       7 0000				MAIN PROC 
+       8 0000  B8 ---- R			MOV AX, @DATA 
+       9 0003  8E D8				MOV DS, AX 
+      10				 
+      11 0005  B3 30				MOV BL, 48 
+      12 0007  B9 000C				MOV CX, 12 
+      13				 
+      14 000A				PRINT_LOOP: 
+      15 000A  B4 02			 	MOV AH, 2 
+      16 000C  8A D3			 	MOV DL,BL 
+      17 000E  CD 21				INT 21H 
+      18				 
+      19 0010  8D 16 0000 R		     	LEA DX,SPA 
+      20 0014  B4 09				MOV AH,9 
+      21 0016  CD 21			     	INT 21H 
+      22					 
+      23 0018  FE C3				INC BL		;increment of 1
+					, 2,..... 
+      24 001A  49				DEC CX		;10 time runing
+					 
+      25 001B  75 ED				JNZ PRINT_LOOP	 
+      26				         
+      27 001D  B4 4C				MOV AH, 4CH	;dos exit 
+      28 001F  CD 21				INT 21H 
+      29				 
+      30				 
+      31 0021				MAIN ENDP 
+      32 0021					END MAIN 
+Microsoft (R) Macro Assembler Version 5.00                  9/20/15 15:51:30
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+DGROUP . . . . . . . . . . . . .  	GROUP
+  _DATA  . . . . . . . . . . . .  	0002	WORD	PUBLIC	'DATA'
+  STACK  . . . . . . . . . . . .  	0100	PARA	STACK	'STACK'
+_TEXT  . . . . . . . . . . . . .  	0021	WORD	PUBLIC	'CODE'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+MAIN . . . . . . . . . . . . . .  	N PROC	0000	_TEXT	Length = 0021
+
+PRINT_LOOP . . . . . . . . . . .  	L NEAR	000A	_TEXT
+
+SPA  . . . . . . . . . . . . . .  	L BYTE	0000	_DATA
+
+@CODE  . . . . . . . . . . . . .  	TEXT  _TEXT		
+@CODESIZE  . . . . . . . . . . .  	TEXT  0		
+@DATASIZE  . . . . . . . . . . .  	TEXT  0		
+@FILENAME  . . . . . . . . . . .  	TEXT  loopn		
+
+
+     32 Source  Lines
+     32 Total   Lines
+     17 Symbols
+
+  50632 + 465912 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors

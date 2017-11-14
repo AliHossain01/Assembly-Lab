@@ -1,0 +1,59 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+hello world.com -- emu8086 assembler version: 4.08  
+ 
+[ 19-Jul-17  --  12:08:05 AM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       
+[   2]        :                                       ; You may customize this and other start-up templates;
+[   3]        :                                       ; The location of this template is c:\emu8086\inc\0_com_template.txt
+[   4]        :                                       
+[   5]        :                                       org 100h
+[   6]        :                                       
+[   7]        :                                       .MODEL SMALL
+[   8]        :                                       .STACK 100H
+[   9]    0100: EB 0D                                 .DATA
+[  10]        :                                       
+[  11]    0102: 48 45 4C 4C 45 20 57 4F 52 4C 44 20   STRING DB 'HELLE WORLD $'
+                24                                  
+[  12]        :                                       
+[  13]        :                                       
+[  14]    010F:                                       .CODE
+[  15]    010F:                                       MAIN PROC
+[  16]        :                                       
+[  17]    010F: 8C C8                                 MOV AX,@DATA ; INTILIZATION OF DATA SEGMENT
+[  18]    0111: 8E D8                                 MOV DS,AX
+[  19]        :                                       
+[  20]        :                                       
+[  21]    0113: BA 02 01                              LEA DX,STRING ; DX = STRING (LEA :: LOAD EFFECTIVE ADDRESS)
+[  22]    0116: B4 09                                 MOV AH,9        ; STRING PRINTING FUNCTION
+[  23]    0118: CD 21                                 INT 21H
+[  24]        :                                       
+[  25]        :                                       
+[  26]        :                                       
+[  27]        :                                       
+[  28]    011A: B4 4C                                 MOV AH,4CH
+[  29]    011C: CD 21                                 INT 21H
+[  30]        :                                       
+[  31]        :                                       MAIN ENDP
+[  32]        :                                       END MAIN
+[  33]        :                                       
+[  34]        :                                       ret
+[  35]        :                                       
+[  36]        :                                       
+[  37]        :                                       
+[  38]        :                                       
+[  39]        :                                       
+[  40]        :                                       
+ 
+===================================================================================================
+ 
+
+
+
+
+===================================================================================================

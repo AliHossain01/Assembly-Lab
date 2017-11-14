@@ -1,0 +1,7 @@
+ mov DX,13
+  mov AH,2
+  int 21h  
+  
+  mov DX,10
+  mov AH,2
+  int 21h

@@ -1,0 +1,60 @@
+TITLE PRG : HEX TO DECIMAL
+.MODEL SMALL
+.STACK 100H
+.DATA
+   M DB 0DH,0AH,'ENTER A HEX DIGIT : $'
+   M1 DB 0DH,0AH,'IN A DECIMAL DIGIT IT IS: $'
+   M2 DB 0DH,0AH,'DO YOU WANT TO DO IT AGAIN? $'
+   M3 DB 0DH,0AH,'ILLEGAL CHARACTER - ENTER 0...9 OR A...F :$'
+   V DB ?
+   A1 DB '10 $'
+   B1 DB '11 $'
+   C1 DB '12 $'
+   D1 DB '13 $'
+   E1 DB '14 $'
+   F1 DB '15 $'
+.CODE
+MAIN PROC
+INITIALIZE:
+     MOV AX,@DATA
+     MOV DS,AX
+WHILE:
+     MOV AH,9
+     LEA DX,M
+     INT 21H
+
+     MOV AH,1
+     INT 21H
+     MOV AH,9
+     LEA DX,M1
+     INT 21H
+     
+     CMP AL,'0'
+     JGE PRINT
+     CMP AL,'9'
+     JLE PRINT
+
+  PRINT:
+    MOV AH,2
+    MOV V,AL
+    MOV DL,V
+    INT 21H
+
+    MOV AH,9
+    LEA DX,M2
+    INT 21H
+
+    MOV AH,1
+    INT 21H
+     
+    CMP AL,'Y'
+    JE WHILE_
+    CMP AL,'N'
+    JE END_P
+  WHILE_:
+     JMP WHILE
+
+END_P:
+MAIN ENDP
+   END MAIN
+     
