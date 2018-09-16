@@ -56,7 +56,7 @@ SCAN PROC
     ;backup the digit to stack
     PUSH AX
     ;Multiply previous value by 10 and add new value
-    MOV BX, 10
+    MOV AX, 10
     MUL BX
     ;Pop new digit from stack
     POP BX
